@@ -56,9 +56,19 @@
                 <tr>
                     <td>{{ $car_brand->name }}</td>
                     <td>{{ $car_brand->creation_year }}</td>
-                    <td><a href="{{ route('update-car-brand', $car_brand->id) }}" class="button">Editar Marca</a></td>
+                    <td>
+                        <a href="{{ route('update-car-brand', $car_brand->id) }}" class="button">Editar Marca</a>
+                        <form action="{{ route('delete-car-brand', $car_brand->id) }}" method="POST"
+                            style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="button"
+                                onclick="return confirm('Tem certeza que deseja excluir esta marca?')">Excluir
+                                Marca</button>
+                        </form>
+                    </td>
+
                 </tr>
-                
             @endforeach
         </tbody>
     </table>

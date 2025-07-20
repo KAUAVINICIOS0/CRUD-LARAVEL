@@ -71,6 +71,7 @@ class CarBrandController extends Controller
      */
     public function destroy(CarBrand $carBrand)
     {
-        //
+        $carBrand->delete();
+        return redirect('/car-brands');  
     }
 }
