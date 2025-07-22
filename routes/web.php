@@ -29,3 +29,7 @@ Route::get('/cars', [CarController::class, 'index'])->name('cars');
 Route::get('/create-car', [CarController::class, 'create'])->name('create-car');
 
 Route::post('/create-car-action', [CarController::class, 'store'])->name('create-car-action');
+
+Route::get('/update-car/{car}', [CarController::class, 'edit'])->name('update-car');
+
+Route::put('/update-car-action/{car}', [CarController::class, 'update'])->name('update-car-action');

@@ -23,6 +23,7 @@
                     <td>{{$car->color}}</td>
                     <td>{{$car->price}}</td>
                     <td>{{App\Models\CarBrand::find($car->id_car_brand)->name}}</td>
+                    <td><a href='{{route('update-car', $car->id)}}'>Editar um carro</a></td>
                 </tr>
                 @endforeach
         </tbody>

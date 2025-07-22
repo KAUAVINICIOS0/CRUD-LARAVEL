@@ -57,7 +57,11 @@ class CarController extends Controller
      */
     public function edit(Car $car)
     {
-        //
+        $carBrands = CarBrand::all();
+        return view('car.update', [
+            'car' => $car,
+            'carBrands' => $carBrands,
+        ]);
     }
 
     /**
@@ -65,7 +69,13 @@ class CarController extends Controller
      */
     public function update(Request $request, Car $car)
     {
-        //
+        $car->update([
+            'name' => $request->name,
+            'color' => $request->color,
+            'price' => $request->price,
+            'id_car_brand' => $request->id_car_brand,
+        ]);
+        return redirect('/cars');
     }
 
     /**
