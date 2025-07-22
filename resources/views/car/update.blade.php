@@ -10,9 +10,9 @@
     <form method='POST' action='{{ route('update-car-action', $car->id) }}'>
         @csrf
         @method('PUT')
-        <input name='name' type='text' value='{{ $car->name }}' required />
-        <input name='color' type='text' value='{{ $car->color }}' required />
-        <input name='price' type='text' value='{{ $car->price }}' required />
+        <input name='name' type='text' value='{{ $car->name }}' maxlength="100" pattern="[A-Za-zÀ-ÿ\s\-]+" required/>
+        <input name='color' type='text' value='{{ $car->color }}' maxlength="100" pattern="[A-Za-zÀ-ÿ\s\-]+" required />
+        <input name='price' type='text' value='{{ $car->price }}' maxlength="20" required />
 
         <select name="id_car_brand" required>
             @foreach ($carBrands as $brand)

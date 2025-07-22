@@ -9,18 +9,19 @@
 <body>
     <form method='POST' action='/create-car-action'>
         @csrf
-        <input name='name' type='text' placeholder='Nivus'/>
-        <input name='color' type='text' placeholder='Preto'/>
-        <input name='price' type='text' placeholder='R$120.000'/>
-        
+        <input name='name' type='text' placeholder='Nivus' maxlength="100" pattern="[A-Za-zÀ-ÿ\s\-]+" required />
+        <input name='color' type='text' placeholder='Preto' maxlength="50" pattern="[A-Za-zÀ-ÿ\s\-]+" required />
+        <input name='price' type='text' placeholder='R$120.000' maxlength='20' required />
+
         <select name='id_car_brand'>
             @foreach ($carBrands as $carBrand)
-                <option value="{{$carBrand->id}}">{{$carBrand->name}}</option>                
+                <option value="{{ $carBrand->id }}">{{ $carBrand->name }}</option>
             @endforeach
         </select>
         <input type='submit' value='send'>
     </form>
-    <a href='{{route('cars')}}'>Voltar</a>
+    <a href='{{ route('cars') }}'>Voltar</a>
+
 </body>
 
 </html>

@@ -15,10 +15,15 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('color');
-            $table->double('price');
-            // Chave estrangeira da marca do carro
-            $table->unSignedBigInteger('id_car_brand');
-            $table->foreign('id_car_brand')->references('id')->on('car_brands')->OnDelete('cascade')->onUpdate('cascade');
+            $table->decimal('price', 10, 2);
+
+            $table->unsignedBigInteger('id_car_brand');
+            $table->foreign('id_car_brand')
+                ->references('id')
+                ->on('car_brands')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
             $table->timestamps();
         });
     }

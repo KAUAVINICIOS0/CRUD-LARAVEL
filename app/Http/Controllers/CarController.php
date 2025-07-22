@@ -35,6 +35,13 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => ['required', 'string', 'max:100', 'regex:/^[\pL\s\-]+$/u'],
+            'color' => ['required', 'string', 'max:50', 'regex:/^[\pL\s\-]+$/u'],
+            'price' => ['required', 'numeric', 'min:0'],
+            'id_car_brand' => ['required', 'exists:car_brands,id'],
+        ]);
+
         Car::create([
             'name' => $request->name,
             'color' => $request->color,
@@ -54,7 +61,7 @@ class CarController extends Controller
      */
     public function edit(Car $car)
     {
-        $carBrands = CarBrand::all(); 
+        $carBrands = CarBrand::all();
         return view('car.update', [
             'car' => $car,
             'carBrands' => $carBrands,
@@ -66,6 +73,13 @@ class CarController extends Controller
      */
     public function update(Request $request, Car $car)
     {
+
+        $request->validate([
+            'name' => ['required', 'string', 'max:100', 'regex:/^[\pL\s\-]+$/u'],
+            'color' => ['required', 'string', 'max:50', 'regex:/^[\pL\s\-]+$/u'],
+            'price' => ['required', 'numeric', 'min:0'],
+            'id_car_brand' => ['required', 'exists:car_brands,id'],
+        ]);
         $car->update([
             'name' => $request->name,
             'color' => $request->color,
