@@ -33,3 +33,4 @@ Route::post('/create-car-action', [CarController::class, 'store'])->name('create
 Route::get('/update-car/{car}', [CarController::class, 'edit'])->name('update-car');
 
 Route::put('/update-car-action/{car}', [CarController::class, 'update'])->name('update-car-action');
+Route::delete('/delete-car/{car}', [CarController::class, 'destroy'])->name('delete-car');

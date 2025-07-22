@@ -47,17 +47,14 @@ class CarController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Car $car)
-    {
-        
-    }
+    public function show(Car $car) {}
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Car $car)
     {
-        $carBrands = CarBrand::all();
+        $carBrands = CarBrand::all(); 
         return view('car.update', [
             'car' => $car,
             'carBrands' => $carBrands,
@@ -83,6 +80,7 @@ class CarController extends Controller
      */
     public function destroy(Car $car)
     {
-        //
+        $car->delete();
+        return redirect('cars');
     }
 }
