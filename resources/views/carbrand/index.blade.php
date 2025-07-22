@@ -74,6 +74,7 @@
     </table>
 
     <a href="{{ url('/create-car-brand') }}" class="button">Criar Nova Marca</a>
+    <a href="{{ route('home') }}" class="button">Voltar</a>
 
 </body>
 
