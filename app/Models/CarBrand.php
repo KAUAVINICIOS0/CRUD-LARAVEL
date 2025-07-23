@@ -14,4 +14,8 @@ class CarBrand extends Model
         'name',
         'creation_year',
     ];
+
+    public function cars(){
+        return $this->hasMany(Car::class);
+    }
 }

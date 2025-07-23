@@ -39,14 +39,14 @@ class CarController extends Controller
             'name' => ['required', 'string', 'max:100', 'regex:/^[\pL\s\-]+$/u'],
             'color' => ['required', 'string', 'max:50', 'regex:/^[\pL\s\-]+$/u'],
             'price' => ['required', 'numeric', 'min:0'],
-            'id_car_brand' => ['required', 'exists:car_brands,id'],
+            'car_brand_id' => ['required', 'exists:car_brands,id'],
         ]);
 
         Car::create([
             'name' => $request->name,
             'color' => $request->color,
             'price' => $request->price,
-            'id_car_brand' => $request->id_car_brand,
+            'car_brand_id' => $request->car_brand_id,
         ]);
         return redirect('/cars');
     }

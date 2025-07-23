@@ -17,6 +17,10 @@ class Car extends Model
         'name',
         'color',
         'price',
-        'id_car_brand',
+        'car_brand_id',
     ];
+
+    public function carBrand() {
+        return $this->belongsTo(CarBrand::class); 
+    }
 }

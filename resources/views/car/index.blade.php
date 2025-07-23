@@ -12,7 +12,7 @@
     <table>
         <thead>
             <tr>
-                <th>Nome</th>
+                <th>Modelo</th>
                 <th>Cor</th>
                 <th>Preço</th>
                 <th>Marca</th>
@@ -24,7 +24,7 @@
                     <td>{{ $car->name }}</td>
                     <td>{{ $car->color }}</td>
                     <td>{{ $car->price }}</td>
-                    <td>{{ App\Models\CarBrand::find($car->id_car_brand)->name }}</td>
+                    <td>{{ $car->carBrand()->first()->name }}</td>
                     <td>
                         <a href='{{ route('update-car', $car->id) }}'>Editar um carro</a>
                         <form method="POST" action="{{ route('delete-car', $car->id) }}">

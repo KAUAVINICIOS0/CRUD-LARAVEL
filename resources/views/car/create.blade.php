@@ -13,7 +13,7 @@
         <input name='color' type='text' placeholder='Preto' maxlength="50" pattern="[A-Za-zÀ-ÿ\s\-]+" required />
         <input name='price' type='text' placeholder='R$120.000' maxlength='20' required />
 
-        <select name='id_car_brand'>
+        <select name='car_brand_id'>
             @foreach ($carBrands as $carBrand)
                 <option value="{{ $carBrand->id }}">{{ $carBrand->name }}</option>
             @endforeach
